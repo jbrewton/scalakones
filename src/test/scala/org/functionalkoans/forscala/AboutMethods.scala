@@ -175,5 +175,14 @@ class AboutMethods extends KoanSuite {
     val foo = new Foo(9)
     10 ~: foo should be (22)
     foo.~:(40) should be (52)
+    /*
+      Interesting thing:
+      Class List does not offer a true append operation, 
+      because the time it takes to append to a list grows 
+      linearly with the size of the list, whereas prepending 
+      with :: takes constant time. myList :: 1 would try to 
+      prepend the entire content of myList to '1', which would 
+      be longer than prepending 1 to myList (as in '1 :: myList')
+    */
   }
 }
